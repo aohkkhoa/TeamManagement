@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TeamManagement" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-BDI2OH9\MAY1;Initial Catalog=TeamManagement;User ID=sa" SettingsObjectName="TeamManagement.Properties.Settings" SettingsPropertyName="TeamManagementConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Department_tb" Member="Department_tbs">
+    <Type Name="Department_tb">
+      <Column Name="department_id" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="department_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descriptions" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Department_tb_Team_tb" Member="Team_tbs" ThisKey="department_id" OtherKey="department_id" Type="Team_tb" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Team_tb" Member="Team_tbs">
+    <Type Name="Team_tb">
+      <Column Name="team_id" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="team_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="department_id" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Department_tb_Team_tb" Member="Department_tb" ThisKey="department_id" OtherKey="department_id" Type="Department_tb" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
