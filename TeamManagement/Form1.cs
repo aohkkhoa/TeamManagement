@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -14,7 +15,8 @@ namespace TeamManagement
 
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source= 192.168.1.20;Initial Catalog=TeamManagement;Persist Security Info=True;User ID=sa;Password=123456");
+        static string connectionString = ConfigurationManager.ConnectionStrings["TeamManagementConnectionString"].ConnectionString;
+        SqlConnection con = new SqlConnection(connectionString);
         public Form1()
         {
             InitializeComponent();
