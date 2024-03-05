@@ -64,6 +64,7 @@ namespace TeamManagement
 
             GetAllTeam();
             GetDepartments();
+            GetDepartmentsSearch();
 
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Aqua;
@@ -93,6 +94,36 @@ namespace TeamManagement
                 comboBoxBoPhan.DataSource = departments;
                 comboBoxBoPhan.DisplayMember = "departmentName";
                 comboBoxBoPhan.ValueMember = "departmentId";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GetDepartmentsSearch()
+        {
+            DataClasses1DataContext dc = new DataClasses1DataContext();
+            dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+            textBoxMaTeam.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBoxTenTeam.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
+            try
+            {
+                var departments = (from d in dc.GetTable<Department_tb>()
+                                   select new
+                                   {
+                                       departmentId = d.department_id,
+                                       departmentName = d.department_name
+                                   }).ToList();
+
+                departments.Insert(0, new { departmentId = "0", departmentName = "" });
+
+                comboBoxSearh.DataSource = departments;
+                comboBoxSearh.DisplayMember = "departmentName";
+                comboBoxSearh.ValueMember = "departmentId";
+
+                comboBoxBoPhan.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -232,7 +263,7 @@ namespace TeamManagement
         {
             DataClasses1DataContext dc = new DataClasses1DataContext(con);
             string searchText = textBoxTimKiem.Text.Trim();
-            
+            string selectedDepartment = comboBoxSearh.Text;
             if (string.IsNullOrEmpty(searchText))
             {
                 GetAllTeam();
@@ -249,7 +280,11 @@ namespace TeamManagement
                                             TeamName = team.team_name.ToLower(),
                                             DepartmentName = department.department_name
                                         })
-                          .Where(team => team.TeamName.Contains(searchText));
+                          .Where(team => team.TeamName.Contains(searchText) || team.TeamId.ToString().Contains(searchText));
+                    if (!string.IsNullOrEmpty(selectedDepartment))
+                    {
+                        filteredData = filteredData.Where(team => team.DepartmentName == selectedDepartment);
+                    }
                     dataGridView1.DataSource = filteredData.ToList();
                 }
                 catch (Exception ex)

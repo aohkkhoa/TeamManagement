@@ -52,6 +52,9 @@ namespace TeamManagement
             this.textBoxTimKiem = new System.Windows.Forms.TextBox();
             this.buttonTimKiem = new System.Windows.Forms.Button();
             this.buttonReport = new System.Windows.Forms.Button();
+            this.comboBoxSearh = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +66,7 @@ namespace TeamManagement
             this.MaTeam,
             this.TenTeam,
             this.TenBoPhan});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 116);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -112,7 +115,7 @@ namespace TeamManagement
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(592, 49);
+            this.groupBox1.Location = new System.Drawing.Point(595, 114);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -262,14 +265,14 @@ namespace TeamManagement
             // 
             // textBoxTimKiem
             // 
-            this.textBoxTimKiem.Location = new System.Drawing.Point(40, 13);
+            this.textBoxTimKiem.Location = new System.Drawing.Point(12, 80);
             this.textBoxTimKiem.Name = "textBoxTimKiem";
             this.textBoxTimKiem.Size = new System.Drawing.Size(276, 22);
             this.textBoxTimKiem.TabIndex = 2;
             // 
             // buttonTimKiem
             // 
-            this.buttonTimKiem.Location = new System.Drawing.Point(322, 9);
+            this.buttonTimKiem.Location = new System.Drawing.Point(470, 76);
             this.buttonTimKiem.Name = "buttonTimKiem";
             this.buttonTimKiem.Size = new System.Drawing.Size(91, 31);
             this.buttonTimKiem.TabIndex = 3;
@@ -279,7 +282,7 @@ namespace TeamManagement
             // 
             // buttonReport
             // 
-            this.buttonReport.Location = new System.Drawing.Point(432, 9);
+            this.buttonReport.Location = new System.Drawing.Point(442, 34);
             this.buttonReport.Name = "buttonReport";
             this.buttonReport.Size = new System.Drawing.Size(119, 31);
             this.buttonReport.TabIndex = 4;
@@ -287,11 +290,42 @@ namespace TeamManagement
             this.buttonReport.UseVisualStyleBackColor = true;
             this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
             // 
+            // comboBoxSearh
+            // 
+            this.comboBoxSearh.FormattingEnabled = true;
+            this.comboBoxSearh.Location = new System.Drawing.Point(312, 80);
+            this.comboBoxSearh.Name = "comboBoxSearh";
+            this.comboBoxSearh.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxSearh.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(230, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Nhập tên team hoặc mã team :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(312, 57);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Chọn bộ phận :";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 450);
+            this.ClientSize = new System.Drawing.Size(977, 515);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBoxSearh);
             this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.buttonTimKiem);
             this.Controls.Add(this.textBoxTimKiem);
@@ -333,6 +367,9 @@ namespace TeamManagement
         private System.Windows.Forms.TextBox textBoxTimKiem;
         private System.Windows.Forms.Button buttonTimKiem;
         private System.Windows.Forms.Button buttonReport;
+        private System.Windows.Forms.ComboBox comboBoxSearh;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
